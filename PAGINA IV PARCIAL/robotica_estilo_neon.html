@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción a la Robótica  </title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #03050A;
+      --panel: rgba(8, 18, 35, 0.78);
+      --cyan: #00f7ff;
+      --blue: #00aaff;
+      --purple: #7c3cff;
+      --text: #ffffff;
+      --muted: #aab8ca;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(0, 247, 255, 0.08), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(124, 60, 255, 0.08), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(0, 170, 255, 0.06), transparent 35%),
+        #03050A;
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0,247,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,247,255,.025) 1px, transparent 1px);
+      background-size: 45px 45px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      z-index: -1;
+    }
+
+    ::selection {
+      background: var(--cyan);
+      color: #001014;
+    }
+
+    .neon-text {
+      color: var(--cyan);
+      text-shadow:
+        0 0 6px rgba(0,247,255,.8),
+        0 0 18px rgba(0,247,255,.55),
+        0 0 35px rgba(0,247,255,.25);
+    }
+
+    .neon-title {
+      text-shadow:
+        0 0 8px rgba(0,247,255,.35),
+        0 0 25px rgba(0,247,255,.18);
+    }
+
+    .glass-card {
+      background: linear-gradient(145deg, rgba(15, 30, 52, .82), rgba(3, 10, 22, .82));
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(0, 247, 255, .18);
+      box-shadow:
+        0 0 18px rgba(0, 247, 255, .08),
+        inset 0 0 20px rgba(0, 247, 255, .025);
+      transition: transform .4s ease, border-color .4s ease, box-shadow .4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 70%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      box-shadow: 0 0 15px var(--cyan);
+      transition: left .7s ease;
+    }
+
+    .glass-card:hover::before { left: 130%; }
+
+    .glass-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(0,247,255,.62);
+      box-shadow:
+        0 0 25px rgba(0,247,255,.18),
+        0 0 55px rgba(0,247,255,.08),
+        inset 0 0 25px rgba(0,247,255,.035);
+    }
+
+    .neon-border {
+      border: 1px solid rgba(0,247,255,.45);
+      box-shadow:
+        0 0 10px rgba(0,247,255,.15),
+        inset 0 0 10px rgba(0,247,255,.04);
+    }
+
+    .nav-neon {
+      background: rgba(3, 5, 10, .82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,247,255,.16);
+      box-shadow: 0 8px 30px rgba(0,0,0,.35);
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color .25s ease, text-shadow .25s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 2px;
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
+      transition: width .3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--cyan);
+      text-shadow: 0 0 10px rgba(0,247,255,.7);
+    }
+
+    .nav-link:hover::after { width: 100%; }
+
+    .neon-button {
+      border: 1px solid rgba(0,247,255,.55);
+      color: var(--cyan);
+      background: rgba(0,247,255,.04);
+      box-shadow: 0 0 12px rgba(0,247,255,.12);
+      transition: all .3s ease;
+    }
+
+    .neon-button:hover {
+      background: rgba(0,247,255,.12);
+      box-shadow: 0 0 22px rgba(0,247,255,.35);
+      transform: translateY(-2px);
+    }
+
+    .robot-card {
+      background: rgba(2, 8, 18, .72);
+      border: 1px solid rgba(0,247,255,.12);
+      transition: all .35s ease;
+    }
+
+    .robot-card:hover {
+      border-color: rgba(0,247,255,.55);
+      box-shadow: 0 0 25px rgba(0,247,255,.15);
+      transform: translateY(-5px);
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: rgba(0,247,255,.07);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @media (max-width: 900px) {
+      .desktop-menu { display: none; }
+    }
+  </style>
+
+</head>
+<body class="antialiased">
+
+  <!-- Navegación fija -->
+  <nav class="fixed w-full z-50 nav-neon">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="font-extrabold text-xl tracking-[0.2em] neon-text"></a>
+
+      <div class="desktop-menu hidden md:flex items-center gap-7 text-xs uppercase tracking-widest">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="Realidadvirtual.html" class="nav-link">Realidad Virtual</a>
+        <a href="ROBOTO.html" class="nav-link">Desarrollo</a>
+        <a href="robotica_estilo_neon.html" class="nav-link">Robótica</a>
+        <a href="Futuro.html" class="nav-link">Futuro</a>
+      </div>
+
+      <a href="Encuesta.html" class="neon-button text-xs uppercase tracking-widest px-4 py-2 rounded-full">
+        Encuesta
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="relative pt-36 pb-12 px-6 max-w-5xl mx-auto text-center">
+    <div class="hero-glow top-24 left-1/2 -translate-x-1/2"></div><span class="neon-text font-semibold tracking-[0.3em] uppercase text-sm">Exploración Tecnológica</span>
+    <h1 class="text-4xl lg:text-6xl font-extrabold mt-4 leading-tight neon-title">Introducción a la <span class="text-cyan-400">Robótica</span></h1>
+    <p class="mt-6 text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed">
+      Más allá de la ingeniería, la robótica requiere marcos éticos. Isaac Asimov propuso las <b>Tres Leyes de la Robótica</b> que, aunque ficticias, sirven de base para el debate sobre la seguridad en la IA actual. La robótica une la física, la lógica de programación y la electrónica para transformar nuestra forma de interactuar con el mundo real.
+    </p>
+  </section>
+
+  <!-- Contenido Principal Interactivo -->
+  <main class="py-10 px-6 max-w-5xl mx-auto space-y-10">
+      
+      <!-- Bloque 1: Leyes de Asimov (Tarjetas interactivas) -->
+      <section id="leyes" class="glass-card p-8 lg:p-10 rounded-3xl">
+          <h2 class="text-3xl font-bold mb-4 text-cyan-300">¿Cómo se rigen los sistemas autónomos?</h2>
+          <p class="text-gray-300 leading-relaxed mb-8">
+              Para garantizar la seguridad y la convivencia con los seres humanos, la robótica y la inteligencia artificial moderna adoptan principios éticos fundamentales basados en las famosas leyes de la ciencia ficción:
+          </p>
+          <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-[#03050A]/60 p-6 rounded-2xl border border-white/5 hover:border-cyan-400/50 transition-colors">
+                  <span class="text-cyan-400 font-extrabold text-lg block mb-2">01. Protección</span>
+                  <p class="text-sm text-gray-300">Un robot no debe dañar a un ser humano ni permitir que sufra daños por inacción.</p>
+              </div>
+              <div class="bg-[#03050A]/60 p-6 rounded-2xl border border-white/5 hover:border-cyan-400/50 transition-colors">
+                  <span class="text-cyan-400 font-extrabold text-lg block mb-2">02. Obediencia</span>
+                  <p class="text-sm text-gray-300">Debe obedecer las órdenes humanas, siempre que no entren en conflicto con la primera ley.</p>
+              </div>
+              <div class="bg-[#03050A]/60 p-6 rounded-2xl border border-white/5 hover:border-cyan-400/50 transition-colors">
+                  <span class="text-cyan-400 font-extrabold text-lg block mb-2">03. Autopreservación</span>
+                  <p class="text-sm text-gray-300">Debe proteger su propia integridad si esto no contradice las leyes anteriores.</p>
+              </div>
+          </div>
+      </section>
+
+      <!-- Bloque 2: Generaciones y Aplicaciones -->
+      <div id="evolucion" class="grid md:grid-cols-2 gap-8">
+          <!-- Evolución -->
+          <section class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+              <div>
+                  <h3 class="text-2xl font-bold mb-6 text-white">Evolución y Generaciones</h3>
+                  <ul class="space-y-4 text-sm text-gray-300">
+                      <li class="flex items-start gap-3">
+                          <span class="text-cyan-400 font-bold">▪ 1ª Gen:</span> Manipuladores fijos para tareas repetitivas en líneas de ensamblaje.
+                      </li>
+                      <li class="flex items-start gap-3">
+                          <span class="text-cyan-400 font-bold">▪ 2ª Gen:</span> Robots dotados de sensores básicos para reaccionar ante estímulos del entorno.
+                      </li>
+                      <li class="flex items-start gap-3">
+                          <span class="text-cyan-400 font-bold">▪ 3ª Gen:</span> Sistemas guiados por visión artificial y control por microprocesadores.
+                      </li>
+                      <li class="flex items-start gap-3">
+                          <span class="text-cyan-400 font-bold">▪ 4ª Gen:</span> Robots inteligentes con IA avanzada y capacidad de aprendizaje autónomo.
+                      </li>
+                  </ul>
+              </div>
+          </section>
+
+          <!-- Aplicaciones y Futuro -->
+          <section id="aplicaciones" class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+              <div>
+                  <h3 class="text-2xl font-bold mb-6 text-white">Campos de Aplicación</h3>
+                  <div class="flex flex-wrap gap-2 mb-6">
+                      <span class="px-3 py-1.5 bg-cyan-950/60 border border-cyan-500/40 rounded-full text-xs text-cyan-200">Domótica</span>
+                      <span class="px-3 py-1.5 bg-cyan-950/60 border border-cyan-500/40 rounded-full text-xs text-cyan-200">Exploración Espacial</span>
+                      <span class="px-3 py-1.5 bg-cyan-950/60 border border-cyan-500/40 rounded-full text-xs text-cyan-200">Nano-robótica</span>
+                      <span class="px-3 py-1.5 bg-cyan-950/60 border border-cyan-500/40 rounded-full text-xs text-cyan-200">Logística Avanzada</span>
+                      <span class="px-3 py-1.5 bg-cyan-950/60 border border-cyan-500/40 rounded-full text-xs text-cyan-200">Medicina Quirúrgica</span>
+                  </div>
+              </div>
+              <div class="bg-cyan-950/20 border border-cyan-500/20 p-4 rounded-2xl">
+                  <p class="text-gray-300 text-xs italic">"La robótica actual pasa de ser una simple herramienta de fuerza mecánica a convertirse en un nodo inteligente de conocimiento."</p>
+              </div>
+          </section>
+      </div>
+
+      <!-- NUEVO: Galería Dinámica de Prototipos Famosos -->
+      <section id="galeria" class="glass-card p-8 lg:p-10 rounded-3xl">
+          <h3 class="text-2xl font-bold mb-2 text-cyan-300">Galería de Prototipos Emblemáticos</h3>
+          <p class="text-gray-300 text-sm mb-8">Modelos reales que definen el estándar de la tecnología robótica actual:</p>
+          
+          <div class="grid md:grid-cols-3 gap-6">
+              <!-- Prototipo 1 -->
+              <div class="robot-card rounded-2xl overflow-hidden group">
+                  <div class="h-40 overflow-hidden bg-slate-900">
+                      <!-- Sustituye 'robot-atlas.jpg' por el nombre de tu imagen local -->
+                      <img src="robot-atlas.jpg" alt="Boston Dynamics Atlas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                  </div>
+                  <div class="p-5">
+                      <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider">Movilidad Dinámica</span>
+                      <h4 class="text-lg font-bold text-white mt-1">Atlas (Boston Dynamics)</h4>
+                      <p class="text-xs text-gray-400 mt-2">Humanoide diseñado para acrobacias, equilibrio extremo y navegación en terrenos complejos.</p>
+                  </div>
+              </div>
+
+              <!-- Prototipo 2 -->
+              <div class="robot-card rounded-2xl overflow-hidden group">
+                  <div class="h-40 overflow-hidden bg-slate-900">
+                      <!-- Sustituye 'robot-davinci.jpg' por el nombre de tu imagen local -->
+                      <img src="robot-vinci.jpg" alt="Sistema Quirúrgico Da Vinci" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                  </div>
+                  <div class="p-5">
+                      <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider">Medicina</span>
+                      <h4 class="text-lg font-bold text-white mt-1">Sistema Da Vinci</h4>
+                      <p class="text-xs text-gray-400 mt-2">Plataforma robótica que permite a los cirujanos realizar operaciones mínimamente invasivas con precisión milimétrica.</p>
+                  </div>
+              </div>
+
+              <!-- Prototipo 3 -->
+              <div class="robot-card rounded-2xl overflow-hidden group">
+                  <div class="h-40 overflow-hidden bg-slate-900">
+                      <!-- Sustituye 'robot-rover.jpg' por el nombre de tu imagen local -->
+                      <img src="Rover.jpg" alt="Rover Marciano" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                  </div>
+                  <div class="p-5">
+                      <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider">Exploración Espacial</span>
+                      <h4 class="text-lg font-bold text-white mt-1">Rovers de Marte</h4>
+                      <p class="text-xs text-gray-400 mt-2">Laboratorios móviles autónomos diseñados para analizar la geología y buscar rastros de vida en otros planetas.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Bloque 3: Tendencia Futura -->
+      <section id="futuro" class="glass-card p-8 lg:p-10 rounded-3xl">
+          <h3 class="text-2xl font-bold mb-4 text-white">El Horizonte: Cobots y Nanorobótica</h3>
+          <p class="text-gray-300 leading-relaxed text-sm lg:text-base">
+              La tendencia actual se centra en los <b>cobots</b> (robots colaborativos) diseñados para operar codo a codo con humanos de manera segura y sin barreras físicas. Paralelamente, la nanotecnología abre paso a microrrobots capaces de desplazarse por el torrente sanguíneo para abordar tratamientos médicos internos altamente precisos.
+          </p>
+      </section>
+
+  </main>
+
+  <!-- NUEVO: Sección de Bibliografía / Referencias -->
+  <section class="max-w-5xl mx-auto px-6 mb-16">
+      <div class="glass-card p-8 rounded-3xl border border-white/10">
+          <h3 class="text-xl font-bold mb-4 text-cyan-300">Fuentes y Bibliografía</h3>
+          <ul class="text-xs md:text-sm text-gray-400 space-y-2 list-disc list-inside">
+              <li>Descubre Arduino. <i>¿Qué es un robot y la robótica?</i> Recuperado de <a href="https://descubrearduino.com/que-es-un-robot-y-la-robotica/" target="_blank" class="text-cyan-400 underline hover:text-cyan-300">descubrearduino.com</a>.</li>
+              <li>Asimov, Isaac. (1950). <i>Yo, Robot</i>. Editorial Gnome Press (Principios de ética robótica).</li>
+              <li>Boston Dynamics. (2026). <i>Especificaciones técnicas de plataformas humanoides y de asistencia</i>.</li>
+          </ul>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-12 text-center text-gray-500 text-xs">
+    <p>© 2026 | Proyecto Tecnológico RVBT</p>
+  </footer>
+
+</body>
+</html>

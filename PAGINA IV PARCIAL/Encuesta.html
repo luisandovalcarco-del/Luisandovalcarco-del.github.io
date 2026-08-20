@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuesta: Robótica Industrial y Automatización — </title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #03050A;
+      --cyan: #00f7ff;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(0,247,255,.08), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(124,60,255,.07), transparent 32%),
+        #03050A;
+      color: #fff;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0,247,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,247,255,.025) 1px, transparent 1px);
+      background-size: 45px 45px;
+      z-index: -1;
+    }
+
+    .glass-card {
+      background: linear-gradient(145deg, rgba(15,30,52,.86), rgba(3,10,22,.88));
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(0,247,255,.18);
+      box-shadow: 0 0 20px rgba(0,247,255,.08);
+      transition: .35s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(0,247,255,.45);
+      box-shadow: 0 0 30px rgba(0,247,255,.14);
+    }
+
+    .neon-button {
+      color: #03050A;
+      background: var(--cyan);
+      box-shadow: 0 0 22px rgba(0,247,255,.35);
+      transition: .3s ease;
+    }
+
+    .neon-button:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 15px var(--cyan),
+        0 0 35px rgba(0,247,255,.55);
+    }
+
+    input, textarea, select {
+      color-scheme: dark;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--cyan) !important;
+      box-shadow: 0 0 12px rgba(0,247,255,.15);
+      outline: none;
+    }
+  </style>
+
+</head>
+<body class="antialiased">
+
+  <!-- Navegación fija -->
+  <nav class="fixed w-full z-50 bg-[#03050A]/85 backdrop-blur-md border-b border-cyan-400/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html"
+         class="font-extrabold text-xl tracking-[0.2em] text-cyan-400"
+         style="text-shadow:0 0 12px rgba(0,247,255,.7);">
+        RVBT
+      </a>
+
+     
+
+      <a href="index.html"
+         class="border border-cyan-400/50 text-cyan-300 text-xs uppercase tracking-widest px-4 py-2 rounded-full hover:bg-cyan-400 hover:text-black transition-all">
+        Inicio
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- Contenido de la Encuesta -->
+  <main id="encuesta" class="pt-36 pb-20 px-6 max-w-4xl mx-auto">
+      <div class="glass-card p-8 lg:p-12 rounded-3xl">
+          <div class="border-b border-white/10 pb-6 mb-8 text-center">
+              <span class="text-cyan-400 font-semibold tracking-[0.3em] uppercase text-sm">Evaluación Académica</span>
+              <h1 class="text-3xl lg:text-4xl font-extrabold mt-2 text-white">Robótica Industrial y Automatización</h1>
+              <p class="text-gray-300 text-sm mt-2">Evaluación sobre la Industria 4.0, componentes robóticos, aplicaciones y vehículos AGV.</p>
+          </div>
+
+          <form id="surveyForm" action="https://formspree.io/f/xzepyybo" method="POST" class="space-y-8">
+              <input type="hidden" name="_subject" value="Nueva encuesta de Robótica Industrial y Automatización">
+              
+              <!-- Datos del Participante -->
+              <div class="bg-[#03050A]/60 p-6 rounded-2xl border border-white/5">
+                  <label class="block text-xs uppercase tracking-wider text-cyan-300 font-semibold mb-2">Nombre del Participante:</label>
+                  <input type="text" name="nombre" placeholder="Escriba su nombre..." required
+                      class="w-full bg-[#03050A]/80 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+              </div>
+
+<div class="bg-[#03050A]/60 p-6 rounded-2xl border border-white/5">
+                  <label class="block text-xs uppercase tracking-wider text-cyan-300 font-semibold mb-2">
+                    Correo electrónico:
+                  </label>
+                  <input type="email" name="email" placeholder="ejemplo@correo.com"
+                    class="w-full bg-[#03050A]/80 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+                  <p class="text-xs text-gray-500 mt-2">Opcional: permite responder al participante.</p>
+              </div>
+
+                            <!-- Sección 1 -->
+              <div id="seccion1">
+                  <h3 class="text-cyan-400 text-sm font-bold uppercase tracking-widest border-l-4 border-cyan-400 pl-3 mb-4">Sección 1: Industria 4.0 y Fundamentos</h3>
+
+                  <div class="bg-[#03050A]/60 p-6 rounded-2xl border border-white/5 space-y-4 mb-4">
+                      <span class="text-sm font-semibold text-white block">1. ¿Cuáles son los objetivos principales de la automatización en la 4ª Revolución Industrial? (Seleccione varias si aplica)</span>
+                      <div class="space-y-2 text-sm text-gray-300">
+                          <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="q1" value="productividad" class="accent-cyan-400"> Incrementar significativamente la productividad</label>
+                          <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="q1" value="recursos" class="accent-cyan-400"> Utilizar los recursos de forma eficiente</label>
+                          <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="q1" value="errores" class="accent-cyan-400"> Disminuir errores en la cadena de producción</label>
+                          <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="q1" value="eliminar_empleo" class="accent-cyan-400"> Eliminar la interacción humana en todas las áreas</label>
+                      </div>
+                  </div>
+
+                  <div class="bg-[#03050A]/60 p-6 rounded-2xl border border-white/5 space-y-4">
+                      <span class="text-sm font-semibold text-white block">2. ¿Qué sucede con los puestos de trabajo de poco valor añadido según la lectura?</span>
+                      <div class="space-y-2 text-sm text-gray-300">
+                          <label class="flex items-start gap-3 cursor-pointer"><input type="radio" name="q2" value="a" required class="accent-cyan-400 mt-1"> Aumentan en número para supervisar a las máquinas.</label>
+                          <label class="flex items-start gap-3 cursor-pointer"><input type="radio" name="q2" value="b" class="accent-cyan-400 mt-1"> Tienden a desaparecer, liberando al personal de tareas peligrosas y creando puestos más cualificados.</label>
+                          <label class="flex items-start gap-3 cursor-pointer"><input type="radio" name="q2" value="c" class="accent-cyan-400 mt-1"> Permanece igual sin sufrir ningún tipo de transformación.</label>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Sección 2 -->
+              <div id="seccion2">
+                  <h3 class="text-cyan-400 text-sm font-bold uppercase tracking-widest border-l-4 border-cyan-400 pl-3 mb-4">Sección 2: Tipos de Robótica y Componentes</h3>
+
+                  <div class="bg-[#03050A]/60 p-6 rounded-2xl border border-white/5 space-y-3 mb-4">
+                      <span class="text-sm font-semibold text-white block">3. Seleccione el tipo de automatización que corresponde a robots que trabajan orquestados por un sistema central según la información que reciben:</span>
+                      <select name="q3" required class="w-full bg-[#03050A]/80 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+                          <option class="bg-slate-900 text-white" value="">-- Seleccionar tipo --</option>
+                          <option class="bg-slate-900 text-white" value="fija">Automatización Fija</option>
+                          <option class="bg-slate-900 text-white" value="programable">Automatización Programable</option>
+                          <option class="bg-slate-900 text-white" value="flexible">Automatización Flexible</option>
+                      </select>
+                  </div>
+
+                  <div class="bg-[#03050A]/60 p-6 rounded-2xl border border-white/5 space-y-4">
+                      <span class="text-sm font-semibold text-white block">4. ¿Cuál de los siguientes es el lenguaje/herramienta estándar para la simulación y desarrollo de software robótico complejo?</span>
+                      <div class="space-y-2 text-sm text-gray-300">
+                          <label class="flex items-center gap-3 cursor-pointer"><input type="radio" name="q4" value="python" required class="accent-cyan-400"> Python (OpenCV)</label>
+                          <label class="flex items-center gap-3 cursor-pointer"><input type="radio" name="q4" value="c" class="accent-cyan-400"> C / C++</label>
+                          <label class="flex items-center gap-3 cursor-pointer"><input type="radio" name="q4" value="ros" class="accent-cyan-400"> ROS (Robot Operating System)</label>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Sección 3 -->
+              <div id="seccion3">
+                  <h3 class="text-cyan-400 text-sm font-bold uppercase tracking-widest border-l-4 border-cyan-400 pl-3 mb-4">Sección 3: Aplicaciones y Vehículos AGV</h3>
+
+                  <div class="bg-[#03050A]/60 p-6 rounded-2xl border border-white/5 space-y-3 mb-4">
+                      <label class="text-sm font-semibold text-white block">5. Explique brevemente cuál es la función de un vehículo AGV (Automatic Guided Vehicle) y en qué áreas beneficia a la industria:</label>
+                      <textarea name="q5" rows="3" placeholder="Escriba su respuesta aquí..." required
+                          class="w-full bg-[#03050A]/80 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-400 transition-colors"></textarea>
+                  </div>
+
+                  <div class="bg-[#03050A]/60 p-6 rounded-2xl border border-white/5 space-y-4">
+                      <span class="text-sm font-semibold text-white block">6. Valore su nivel de acuerdo con las siguientes afirmaciones (1 = Muy en desacuerdo, 5 = Muy de acuerdo):</span>
+                      
+                      <div class="overflow-x-auto">
+                          <table class="w-full border-collapse text-xs md:text-sm">
+                              <thead>
+                                  <tr class="border-b border-white/10 text-cyan-300">
+                                      <th class="text-left py-2 px-3">Afirmación</th>
+                                      <th class="py-2 px-2 text-center">1</th>
+                                      <th class="py-2 px-2 text-center">2</th>
+                                      <th class="py-2 px-2 text-center">3</th>
+                                      <th class="py-2 px-2 text-center">4</th>
+                                      <th class="py-2 px-2 text-center">5</th>
+                                  </tr>
+                              </thead>
+                              <tbody class="divide-y divide-white/5 text-gray-300">
+                                  <tr>
+                                      <td class="py-3 px-3">La robótica médica mejora la precisión y reduce los riesgos fatales en cirugías.</td>
+                                      <td class="text-center"><input type="radio" name="scale1" value="1" required class="accent-cyan-400"></td>
+                                      <td class="text-center"><input type="radio" name="scale1" value="2" class="accent-cyan-400"></td>
+                                      <td class="text-center"><input type="radio" name="scale1" value="3" class="accent-cyan-400"></td>
+                                      <td class="text-center"><input type="radio" name="scale1" value="4" class="accent-cyan-400"></td>
+                                      <td class="text-center"><input type="radio" name="scale1" value="5" class="accent-cyan-400"></td>
+                                  </tr>
+                                  <tr>
+                                      <td class="py-3 px-3">La colaboración hombre-robot genera una transformación positiva en las industrias.</td>
+                                      <td class="text-center"><input type="radio" name="scale2" value="1" required class="accent-cyan-400"></td>
+                                      <td class="text-center"><input type="radio" name="scale2" value="2" class="accent-cyan-400"></td>
+                                      <td class="text-center"><input type="radio" name="scale2" value="3" class="accent-cyan-400"></td>
+                                      <td class="text-center"><input type="radio" name="scale2" value="4" class="accent-cyan-400"></td>
+                                      <td class="text-center"><input type="radio" name="scale2" value="5" class="accent-cyan-400"></td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Botón de Envío -->
+              <div class="text-center pt-4">
+                  <button type="submit" 
+                      class="neon-button px-10 py-4 rounded-full font-bold text-sm">
+                      Enviar Respuestas
+                  </button>
+              </div>
+          </form>
+      </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-12 text-center text-gray-500 text-xs">
+    <p>© 2026 | Proyecto Tecnológico RVBT</p>
+  </footer>
+
+</body>
+</html>
