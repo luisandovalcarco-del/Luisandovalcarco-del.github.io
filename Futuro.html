@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robótica y Realidad del Futuro — RVBT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="menu.css">
+  <style>
+    .glass { background: rgba(15, 28, 51, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(130, 152, 188, 0.2); }
+    .card-hover:hover { transform: translateY(-5px); transition: 0.3s ease; border-color: #22d3ee; }
+  </style>
+</head>
+<body class="bg-[#03050A] text-white font-sans antialiased">
+
+  <!-- Navegación -->
+  <nav class="fixed w-full z-50 glass border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-xl tracking-widest text-cyan-400">RVBT</a>
+      <a href="index.html" class="text-xs uppercase tracking-widest hover:text-cyan-400 transition-colors border border-cyan-400/40 px-4 py-2 rounded-full">Volver al Inicio</a>
+    </div>
+  </nav>
+
+  
+ <!-- =====================================================
+     MENÚ PRINCIPAL
+===================================================== -->
+
+<header class="main-header">
+    <nav class="main-nav">
+
+        <!-- LOGO -->
+        <a href="index.html" class="logo">
+            
+        </a>
+
+        <!-- MENÚ -->
+        <ul class="nav-menu">
+
+            <li>
+                <a href="index.html" class="nav-link">
+                    INICIO
+                </a>
+            </li>
+
+            <li>
+                <a href="Realidadvirtual.html" class="nav-link active">
+                    REALIDAD VIRTUAL
+                </a>
+            </li>
+
+            <li>
+                <a href="ROBOTO.html" class="nav-link">
+                    DESARROLLO 
+                </a>
+            </li>
+
+            <li>
+                <a href="robotica_estilo_neon.html" class="nav-link">
+                    ROBOTICA
+                </a>
+            </li>
+
+        </ul>
+
+        <!-- BOTÓN -->
+        <a href="Encuesta.html" class="nav-button">
+            ENCUESTA →
+        </a>
+
+    </nav>
+</header>
+
+
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <span class="text-cyan-400 font-semibold tracking-[0.3em] uppercase text-sm">Innovación Tecnológica</span>
+      <h1 class="text-4xl lg:text-6xl font-extrabold mt-6 leading-tight">Robótica y <span class="text-cyan-400">Realidad del Futuro</span></h1>
+      <p class="mt-6 text-lg text-gray-300 leading-8">
+        La convergencia entre la inteligencia artificial, las máquinas autónomas y los entornos virtuales está rediseñando las capacidades humanas. El futuro no es solo físico; es inmersivo y automatizado.
+      </p>
+    </div>
+    <!-- Imagen destacada con enlace web -->
+    <div class="rounded-3xl overflow-hidden border border-cyan-500/30 shadow-[0_0_50px_rgba(34,211,238,0.2)] h-80">
+      <img src="robot.jpg" alt="Robótica y VR" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+  </section>
+
+  <!-- Tarjetas interactivas -->
+  <section class="py-16 bg-[#0F1C33]/30">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Pilares de la Nueva Era</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-2xl card-hover">
+          <div class="text-4xl mb-4">🤖</div>
+          <h3 class="text-xl font-bold mb-3 text-cyan-300">Robots Autónomos</h3>
+          <p class="text-gray-300 text-sm leading-relaxed">Aprendizaje profundo y sensores avanzados que permiten a las máquinas operar de forma independiente en entornos complejos.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl card-hover">
+          <div class="text-4xl mb-4">🕶️</div>
+          <h3 class="text-xl font-bold mb-3 text-cyan-300">Gemelos Digitales</h3>
+          <p class="text-gray-300 text-sm leading-relaxed">Simulación exacta de robots en el mundo virtual para probar su rendimiento y seguridad antes de construirlos físicamente.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl card-hover">
+          <div class="text-4xl mb-4">🌐</div>
+          <h3 class="text-xl font-bold mb-3 text-cyan-300">Teleoperación</h3>
+          <p class="text-gray-300 text-sm leading-relaxed">Control de maquinaria pesada o de exploración a distancia utilizando visores de realidad virtual y respuesta háptica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Áreas de Aplicación e Impacto -->
+  <section class="py-20 px-6 max-w-5xl mx-auto">
+    <h2 class="text-4xl font-bold mb-12 text-center text-cyan-400">El Impacto de la Convergencia</h2>
+    
+    <div class="space-y-10">
+        <div class="glass p-8 lg:p-10 rounded-3xl">
+            <h3 class="text-2xl font-bold mb-6 text-white border-b border-cyan-500/30 pb-4">¿En qué áreas se aplica?</h3>
+            <ul class="grid md:grid-cols-2 gap-6 text-gray-300">
+                <li class="flex items-start gap-3"><span>🚀</span> <div><strong class="text-white">Industria Aeroespacial:</strong> Mantenimiento remoto de estaciones espaciales mediante robots operados en VR.</div></li>
+                <li class="flex items-start gap-3"><span>🧬</span> <div><strong class="text-white">Medicina Avanzada:</strong> Cirugías robóticas de alta precisión ejecutadas a distancia con retroalimentación háptica.</div></li>
+                <li class="flex items-start gap-3"><span>🎓</span> <div><strong class="text-white">Educación Técnica:</strong> Entrenamiento de operarios en entornos virtuales peligrosos sin poner en riesgo vidas humanas.</div></li>
+                <li class="flex items-start gap-3"><span>🏭</span> <div><strong class="text-white">Manufactura 4.0:</strong> Diseño y optimización de líneas de producción inteligentes conectadas a la nube.</div></li>
+            </ul>
+        </div>
+
+        <!-- Preguntas sobre el Futuro -->
+        <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-cyan-950/40 p-8 rounded-3xl border border-cyan-500/30 backdrop-blur-md">
+                <h4 class="text-xl font-bold text-cyan-300 mb-4">¿Cómo influirá en nuestra vida diaria?</h4>
+                <p class="text-gray-300 leading-relaxed text-sm">
+                    La línea entre lo físico y lo digital se desdibujará. Podremos integrarnos a espacios laborales o educativos donde avatares robóticos ejecuten acciones físicas por nosotros, optimizando tiempos y reduciendo riesgos de desplazamiento.
+                </p>
+            </div>
+            <div class="bg-blue-950/40 p-8 rounded-3xl border border-blue-500/30 backdrop-blur-md">
+                <h4 class="text-xl font-bold text-blue-300 mb-4">¿Qué pasará con el empleo y la ética?</h4>
+                <p class="text-gray-300 leading-relaxed text-sm">
+                    Surgirá una demanda masiva de nuevos perfiles profesionales, como arquitectos de mundos virtuales y técnicos de sistemas inteligentes. El gran reto ético será garantizar que la tecnología sea inclusiva y accesible.
+                </p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Sección de Cierre -->
+  <section class="py-16 bg-gradient-to-b from-transparent to-[#0F1C33]/50 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-6">¿Estamos preparados para esta realidad?</h2>
+        <p class="text-gray-300 max-w-2xl mx-auto mb-8 text-sm leading-relaxed">
+            El futuro no es solo algo que sucede, sino algo que diseñamos. La unión de la robótica y la realidad virtual transformará por completo la forma en que interactuamos con el entorno.
+        </p>
+        <a href="index.html" class="inline-block px-8 py-4 bg-cyan-500 text-slate-950 font-bold rounded-full hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(34,211,238,0.4)]">
+            Volver a la Página Principal
+        </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-8 text-center text-xs text-gray-500">
+    <p>© 2026 | Proyecto Realidad Virtual y Robótica</p>
+  </footer>
+
+</body>
+</html>
